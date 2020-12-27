@@ -1,7 +1,7 @@
 class Ball{
     constructor(x,y,r){
       var options ={
-        isStatic: true
+        isStatic: false
       }
       this.body = Bodies.circle(x,y,r,options);  
       this.r = r;

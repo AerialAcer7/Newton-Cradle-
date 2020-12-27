@@ -4,16 +4,26 @@ class Chain{
             bodyA: bodyA,
             pointB: pointB,
             stiffness: 0.04,
-            length: 10
+            length: 150
         }
         this.pointB = pointB
-        this.sling =Matter.Constraint.create(options);
-        World.add(world, this.body);
+        this.sling = Matter.Constraint.create(options);
+        World.add(world, this.sling);
+    }
+    attach(body){
+        this.sling.bodyA = body;
+    }
+    
+    fly(){
+        this.sling.bodyA = null;
     }
 
-display(){
-   var pos = this.bodyA.position;
-   var pos2 = this.pointB.position;
-  line(pos.x,pos.y,pos2.x,pos2.y); 
-}
+    display(){
+        if(this.sling.bodyA){
+            var pointA = this.sling.bodyA.position;
+            var pointB = this.pointB;
+          line(pointA.x,pointA.y,pointB.x,pointB.y);
+        }
+    }
+    
 }
