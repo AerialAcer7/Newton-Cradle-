@@ -43,12 +43,12 @@ function draw() {
   ball2.display();
   ball3.display();
   ball4.display();
+
+  if(keyDown(UP_ARROW)){
+    Matter.Body.applyForce(ball.body,ball.body.position,{x:-20,y:-4}) 
+}
 }
 
-function mouseDragged(){
-      Matter.Body.setPosition(ball.body, {x: mouseX , y: mouseY});
-  
-}
 
 
 
